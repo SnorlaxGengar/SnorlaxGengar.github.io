@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://snorlaxgengar.github.io/sitemap.xml

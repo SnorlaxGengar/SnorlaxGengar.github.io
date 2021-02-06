@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>1432.可获得的最大点数 - SnorlaxGengar</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="SnorlaxGengar" /><meta name="description" content="1423. 可获得的最大点数 题目 1 2 3 4 5 6 7 8 9 10 11 几张卡牌 排成一行，每张卡牌都有一个对应的点数。点数由整数数组 cardPoints 给出。 每次行动，你可以从行的开头或" /><meta name="keywords" content="SnorlaxGengar, leetcode, blog" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.79.1 with theme even" />
+
+
+<link rel="canonical" href="https://snorlaxgengar.github.io/post/1432.maximum-points-you-can-obtain-from-cards/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.b5a744db6de49a86cadafb3b70f555ab443f83c307a483402259e94726b045ff.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="1432.可获得的最大点数" />
+<meta property="og:description" content="1423. 可获得的最大点数 题目 1 2 3 4 5 6 7 8 9 10 11 几张卡牌 排成一行，每张卡牌都有一个对应的点数。点数由整数数组 cardPoints 给出。 每次行动，你可以从行的开头或" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://snorlaxgengar.github.io/post/1432.maximum-points-you-can-obtain-from-cards/" />
+<meta property="article:published_time" content="2021-02-06T11:43:09+08:00" />
+<meta property="article:modified_time" content="2021-02-06T11:43:09+08:00" />
+<meta itemprop="name" content="1432.可获得的最大点数">
+<meta itemprop="description" content="1423. 可获得的最大点数 题目 1 2 3 4 5 6 7 8 9 10 11 几张卡牌 排成一行，每张卡牌都有一个对应的点数。点数由整数数组 cardPoints 给出。 每次行动，你可以从行的开头或">
+<meta itemprop="datePublished" content="2021-02-06T11:43:09+08:00" />
+<meta itemprop="dateModified" content="2021-02-06T11:43:09+08:00" />
+<meta itemprop="wordCount" content="909">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="1432.可获得的最大点数"/>
+<meta name="twitter:description" content="1423. 可获得的最大点数 题目 1 2 3 4 5 6 7 8 9 10 11 几张卡牌 排成一行，每张卡牌都有一个对应的点数。点数由整数数组 cardPoints 给出。 每次行动，你可以从行的开头或"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">SnorlaxGengar</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">SnorlaxGengar</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">1432.可获得的最大点数</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-02-06 </span>
+        
+          <span class="more-meta"> 约 909 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1423-可获得的最大点数httpsleetcode-cncomproblemsmaximum-points-you-can-obtain-from-cards">1423. <a href="https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards/">可获得的最大点数</a></a>
+      <ul>
+        <li><a href="#题目">题目</a></li>
+        <li><a href="#2种思路">2种思路</a></li>
+        <li><a href="#第1次尝试解答错误">第1次尝试(解答错误)</a></li>
+        <li><a href="#第2次尝试">第2次尝试</a></li>
+        <li><a href="#第3次尝试">第3次尝试</a></li>
+        <li><a href="#总结">总结</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <h1 id="1423-可获得的最大点数httpsleetcode-cncomproblemsmaximum-points-you-can-obtain-from-cards">1423. <a href="https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards/">可获得的最大点数</a></h1>
+<h2 id="题目">题目</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">几张卡牌 排成一行，每张卡牌都有一个对应的点数。点数由整数数组 cardPoints 给出。
+
+每次行动，你可以从行的开头或者末尾拿一张卡牌，最终你必须正好拿 k 张卡牌。
+
+你的点数就是你拿到手中的所有卡牌的点数之和。
+
+给你一个整数数组 cardPoints 和整数 k，请你返回可以获得的最大点数。
+
+来源：力扣（LeetCode）
+链接：https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards
+著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="2种思路">2种思路</h2>
+<ul>
+<li>
+<p>每次从两端取最大的数累加</p>
+</li>
+<li>
+<p>使用滑动窗口累加</p>
+</li>
+</ul>
+<h2 id="第1次尝试解答错误">第1次尝试(解答错误)</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="k">class</span> <span class="nc">Solution</span> <span class="p">{</span>
+  <span class="k">public</span><span class="o">:</span>
+    <span class="kt">int</span> <span class="n">maxScore</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">cardPoints</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">return</span> <span class="n">cardPoints</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="p">}</span>
+
+        <span class="k">auto</span> <span class="n">l</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+        <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">[</span><span class="n">cardPoints</span><span class="p">.</span><span class="n">size</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span><span class="p">];</span>
+        <span class="kt">int</span> <span class="n">result</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+        <span class="k">while</span> <span class="p">(</span><span class="n">k</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">l</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="o">*</span><span class="n">l</span><span class="p">;</span>
+                <span class="o">++</span><span class="n">l</span><span class="p">;</span>
+                <span class="o">--</span><span class="n">k</span><span class="p">;</span>
+
+            <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="o">*</span><span class="n">r</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">l</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">result</span> <span class="o">+=</span> <span class="o">*</span><span class="n">r</span><span class="p">;</span>
+                <span class="o">--</span><span class="n">r</span><span class="p">;</span>
+                <span class="o">--</span><span class="n">k</span><span class="p">;</span>
+
+            <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="k">while</span> <span class="p">(</span><span class="o">*</span><span class="n">l</span> <span class="o">==</span> <span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+                    <span class="n">result</span> <span class="o">+=</span> <span class="o">*</span><span class="n">l</span><span class="p">;</span>
+                    <span class="o">++</span><span class="n">l</span><span class="p">;</span>
+                    <span class="o">--</span><span class="n">r</span><span class="p">;</span>
+                    <span class="o">--</span><span class="n">k</span><span class="p">;</span>
+
+                    <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="p">}</span>
+
+                    <span class="c1">// 回滚
+</span><span class="c1"></span>                    <span class="k">if</span> <span class="p">(</span><span class="o">*</span><span class="n">l</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">result</span> <span class="o">+=</span> <span class="o">*</span><span class="n">l</span><span class="p">;</span>
+                        <span class="o">++</span><span class="n">l</span><span class="p">;</span>
+                        <span class="o">++</span><span class="n">r</span><span class="p">;</span>
+                        <span class="o">--</span><span class="n">k</span><span class="p">;</span>
+
+                    <span class="p">}</span> <span class="k">else</span> <span class="nf">if</span> <span class="p">(</span><span class="o">*</span><span class="n">r</span> <span class="o">&gt;</span> <span class="o">*</span><span class="n">l</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">result</span> <span class="o">+=</span> <span class="o">*</span><span class="n">r</span><span class="p">;</span>
+                        <span class="o">--</span><span class="n">l</span><span class="p">;</span>
+                        <span class="o">--</span><span class="n">r</span><span class="p">;</span>
+                        <span class="o">--</span><span class="n">k</span><span class="p">;</span>
+                    <span class="p">}</span>
+
+                    <span class="k">if</span> <span class="p">(</span><span class="n">k</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">break</span><span class="p">;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+
+        <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>测试案例<code>{11, 49, 100, 20, 86, 29, 72}, 4</code>不通过.</p>
+<p>按每次取最大值的思路会取到: <code>72, 29, 86, 20 = 207</code></p>
+<p>而实际: <code>72, 11, 49, 100 = 232</code> 才是解.</p>
+<h2 id="第2次尝试">第2次尝试</h2>
+<p>由于每次都是从队列头或者队列尾取数, 所以联想到环形数组, 从而发现这是一个滑动窗口.</p>
+<p>由于窗口会跨越边界, 分成&quot;两扇窗&quot;进行计算, 使用l和r来记录两扇窗的宽度.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="nf">maxScore</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">result</span> <span class="p">{</span><span class="mi">0</span><span class="p">};</span>
+
+    <span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">l</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="n">r</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">l</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">;</span> <span class="o">--</span><span class="n">l</span><span class="p">,</span> <span class="o">++</span><span class="n">r</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">auto</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">cardPoints</span><span class="p">.</span><span class="n">begin</span><span class="p">(),</span> <span class="n">cardPoints</span><span class="p">.</span><span class="n">begin</span><span class="p">()</span> <span class="o">+</span> <span class="n">l</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="o">+</span> <span class="n">accumulate</span><span class="p">(</span><span class="n">cardPoints</span><span class="p">.</span><span class="n">rbegin</span><span class="p">(),</span> <span class="n">cardPoints</span><span class="p">.</span><span class="n">rbegin</span><span class="p">()</span> <span class="o">+</span> <span class="n">r</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">sum</span><span class="p">,</span> <span class="n">result</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>执行结果正确了, 但每次滑动窗口都要重新计算窗口内的值, 所以出现&quot;超出时间限制&quot;.</p>
+<h2 id="第3次尝试">第3次尝试</h2>
+<p>由于窗口每次都是滑动1个元素, 所以可以复用上一个的结果, 使用边界元素更新和即可.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-C++" data-lang="C++"><span class="kt">int</span> <span class="nf">maxScore</span><span class="p">(</span><span class="k">const</span> <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">,</span> <span class="kt">int</span> <span class="n">k</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">auto</span> <span class="n">l</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">r</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">[</span><span class="n">cardPoints</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
+    <span class="k">auto</span> <span class="n">result</span> <span class="o">=</span> <span class="n">accumulate</span><span class="p">(</span><span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">lastSum</span> <span class="o">=</span> <span class="n">result</span><span class="p">;</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">l</span> <span class="o">&gt;=</span> <span class="o">&amp;</span><span class="n">cardPoints</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="p">{</span>
+        <span class="n">lastSum</span> <span class="o">=</span> <span class="n">lastSum</span> <span class="o">-</span> <span class="p">(</span><span class="o">*</span><span class="n">l</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="o">*</span><span class="n">r</span><span class="p">);</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">max</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">lastSum</span><span class="p">);</span>
+        <span class="o">--</span><span class="n">l</span><span class="p">;</span>
+        <span class="o">--</span><span class="n">r</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="总结">总结</h2>
+<ul>
+<li>
+<p>太菜了</p>
+</li>
+<li>
+<p>能使用第1种方法解决的问题前提应该是每一步都能保证是最优解, 本题不适合</p>
+</li>
+<li>
+<p>第1种方法(错误答案)的代码反而比正确答案代码复杂</p>
+</li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">SnorlaxGengar</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-02-06
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        
+        
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/SnorlaxGengar" class="iconfont icon-github" title="github"></a>
+  <a href="https://snorlaxgengar.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>SnorlaxGengar</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
